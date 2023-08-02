@@ -6,7 +6,7 @@
 /*   By: fmanzana <fmanzana@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 16:37:55 by fmanzana          #+#    #+#             */
-/*   Updated: 2023/07/29 17:01:01 by fmanzana         ###   ########.fr       */
+/*   Updated: 2023/08/02 11:40:09 by fmanzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int main(void) {
 	Array<int> a = Array<int>();
 
-	std::cout << "a size: " << a.getSize() << std::endl;
+	std::cout << "a size: " << a.size() << std::endl;
 	try {
 		std::cout << a[2] << std::endl;
 	} catch (std::out_of_range &e) {
@@ -33,8 +33,8 @@ int main(void) {
 	std::cout << "b[0] (after -a- assgination): " << b[0] << std::endl;
 	std::cout << "a[0]: " << a[0] << std::endl;
 
-	std::cout << "b size: " << b.getSize() << std::endl;
-	std::cout << "a (after assignation) size: " << a.getSize() << std::endl;
+	std::cout << "b size: " << b.size() << std::endl;
+	std::cout << "a (after assignation) size: " << a.size() << std::endl;
 
 	return (0);
 }

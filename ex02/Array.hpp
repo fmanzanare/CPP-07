@@ -6,7 +6,7 @@
 /*   By: fmanzana <fmanzana@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 16:18:05 by fmanzana          #+#    #+#             */
-/*   Updated: 2023/07/29 16:57:53 by fmanzana         ###   ########.fr       */
+/*   Updated: 2023/08/02 11:39:11 by fmanzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ template <typename T> class Array {
 		Array(const Array &cp);
 		Array &operator=(const Array &cp);
 		T &operator[](int idx);
-		unsigned int getSize(void);
+		unsigned int size(void);
 };
 
 template <typename T> Array<T>::Array() {
@@ -68,7 +68,7 @@ template <typename T> T &Array<T>::operator[](int idx) {
 		return (this->_arr[idx]);
 }
 
-template <typename T> unsigned int Array<T>::getSize(void) {
+template <typename T> unsigned int Array<T>::size(void) {
 	return (this->_size);
 }
 
