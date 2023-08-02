@@ -1,19 +1,67 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: fmanzana <fmanzana@student.42malaga.com>   +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/29 16:37:55 by fmanzana          #+#    #+#             */
-/*   Updated: 2023/08/02 11:40:09 by fmanzana         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "Array.hpp"
 #include <iostream>
+#include "Array.hpp"
 
-int main(void) {
+#define MAX_VAL 750
+int main(int, char**)
+{
+	std::cout << "PROVIDED MAIN!!" << std::endl;
+	std::cout << std::endl;
+
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+    }
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    try
+    {
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        numbers[MAX_VAL] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+    }
+	for (int i = 0; i < MAX_VAL; i++)
+		std::cout << numbers[i] << " ";
+	std::cout << std::endl;
+    delete [] mirror;//
+
+	std::cout << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "MyMAIN MAIN!!" << std::endl;
+	std::cout << std::endl;
+
 	Array<int> a = Array<int>();
 
 	std::cout << "a size: " << a.size() << std::endl;
@@ -36,5 +84,5 @@ int main(void) {
 	std::cout << "b size: " << b.size() << std::endl;
 	std::cout << "a (after assignation) size: " << a.size() << std::endl;
 
-	return (0);
+    return 0;
 }
